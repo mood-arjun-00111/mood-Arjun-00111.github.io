@@ -1,0 +1,3923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="MindShelf - Discover books that can change the way you think about money, investing, habits, success and life."
+    >
+
+    <meta
+        name="theme-color"
+        content="#09090b"
+    >
+
+    <title>MindShelf — Discover Books That Change the Way You Think</title>
+
+
+    <style>
+
+        /* =========================================================
+           RESET
+        ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family:
+                Inter,
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+
+            background: #09090b;
+            color: #f4f4f5;
+
+            line-height: 1.6;
+
+            transition:
+                background 0.3s ease,
+                color 0.3s ease;
+        }
+
+        body.light {
+            background: #f5f5f4;
+            color: #18181b;
+        }
+
+        button,
+        input {
+            font: inherit;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+
+        /* =========================================================
+           VARIABLES
+        ========================================================= */
+
+        :root {
+
+            --bg:
+                #09090b;
+
+            --bg-soft:
+                #111113;
+
+            --card:
+                #151518;
+
+            --card-hover:
+                #1c1c21;
+
+            --border:
+                #27272a;
+
+            --text:
+                #f4f4f5;
+
+            --muted:
+                #a1a1aa;
+
+            --accent:
+                #f59e0b;
+
+            --accent-light:
+                #fbbf24;
+
+            --danger:
+                #ef4444;
+
+            --success:
+                #22c55e;
+
+            --max-width:
+                1200px;
+        }
+
+
+        body.light {
+
+            --bg:
+                #f5f5f4;
+
+            --bg-soft:
+                #e7e5e4;
+
+            --card:
+                #ffffff;
+
+            --card-hover:
+                #fafafa;
+
+            --border:
+                #d6d3d1;
+
+            --text:
+                #18181b;
+
+            --muted:
+                #57534e;
+        }
+
+
+        /* =========================================================
+           COMMON
+        ========================================================= */
+
+        .container {
+
+            width:
+                min(
+                    var(--max-width),
+                    92%
+                );
+
+            margin:
+                0 auto;
+        }
+
+
+        .hidden {
+            display: none !important;
+        }
+
+
+        .section {
+
+            padding:
+                90px 0;
+        }
+
+
+        .section-header {
+
+            max-width:
+                720px;
+
+            margin:
+                0 auto 50px;
+
+            text-align:
+                center;
+        }
+
+
+        .section-header h2 {
+
+            font-size:
+                clamp(2rem, 5vw, 3.4rem);
+
+            line-height:
+                1.1;
+
+            margin-bottom:
+                15px;
+        }
+
+
+        .section-header p {
+
+            color:
+                var(--muted);
+
+            font-size:
+                1.05rem;
+        }
+
+
+        .eyebrow {
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            gap:
+                8px;
+
+            padding:
+                7px 13px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                999px;
+
+            color:
+                var(--accent-light);
+
+            background:
+                rgba(245, 158, 11, 0.08);
+
+            font-size:
+                0.85rem;
+
+            font-weight:
+                700;
+
+            margin-bottom:
+                20px;
+        }
+
+
+        /* =========================================================
+           HEADER
+        ========================================================= */
+
+        .header {
+
+            position:
+                sticky;
+
+            top:
+                0;
+
+            z-index:
+                1000;
+
+            background:
+                rgba(9, 9, 11, 0.88);
+
+            backdrop-filter:
+                blur(18px);
+
+            border-bottom:
+                1px solid var(--border);
+        }
+
+
+        body.light .header {
+
+            background:
+                rgba(245, 245, 244, 0.9);
+        }
+
+
+        .nav {
+
+            min-height:
+                72px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+
+            gap:
+                20px;
+        }
+
+
+        .logo {
+
+            font-size:
+                1.5rem;
+
+            font-weight:
+                900;
+
+            letter-spacing:
+                -1px;
+        }
+
+
+        .logo span {
+
+            color:
+                var(--accent);
+        }
+
+
+        .nav-links {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                25px;
+
+            list-style:
+                none;
+        }
+
+
+        .nav-links button {
+
+            background:
+                none;
+
+            border:
+                none;
+
+            color:
+                var(--muted);
+
+            font-weight:
+                700;
+
+            transition:
+                color 0.2s;
+        }
+
+
+        .nav-links button:hover,
+        .nav-links button.active {
+
+            color:
+                var(--text);
+        }
+
+
+        .nav-actions {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                8px;
+        }
+
+
+        .icon-btn {
+
+            width:
+                40px;
+
+            height:
+                40px;
+
+            border:
+                1px solid var(--border);
+
+            background:
+                var(--card);
+
+            color:
+                var(--text);
+
+            border-radius:
+                50%;
+        }
+
+
+        .mobile-menu {
+
+            display:
+                none;
+
+            border:
+                1px solid var(--border);
+
+            background:
+                var(--card);
+
+            color:
+                var(--text);
+
+            border-radius:
+                8px;
+
+            padding:
+                8px 11px;
+        }
+
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+
+            min-height:
+                calc(100vh - 72px);
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            position:
+                relative;
+
+            overflow:
+                hidden;
+        }
+
+
+        .hero::before {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            width:
+                500px;
+
+            height:
+                500px;
+
+            border-radius:
+                50%;
+
+            background:
+                rgba(245, 158, 11, 0.08);
+
+            filter:
+                blur(60px);
+
+            top:
+                -180px;
+
+            right:
+                -150px;
+        }
+
+
+        .hero-content {
+
+            max-width:
+                850px;
+
+            position:
+                relative;
+
+            z-index:
+                1;
+        }
+
+
+        .hero h1 {
+
+            font-size:
+                clamp(3.2rem, 8vw, 7rem);
+
+            line-height:
+                0.98;
+
+            letter-spacing:
+                -5px;
+
+            margin-bottom:
+                30px;
+        }
+
+
+        .hero h1 span {
+
+            color:
+                var(--accent);
+        }
+
+
+        .hero-description {
+
+            max-width:
+                700px;
+
+            font-size:
+                clamp(1rem, 2vw, 1.25rem);
+
+            color:
+                var(--muted);
+
+            margin-bottom:
+                30px;
+        }
+
+
+        .hero-actions {
+
+            display:
+                flex;
+
+            flex-wrap:
+                wrap;
+
+            gap:
+                12px;
+        }
+
+
+        .btn {
+
+            border:
+                none;
+
+            border-radius:
+                9px;
+
+            padding:
+                13px 20px;
+
+            font-weight:
+                800;
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            gap:
+                8px;
+
+            transition:
+                transform 0.2s,
+                opacity 0.2s,
+                background 0.2s;
+        }
+
+
+        .btn:hover {
+
+            transform:
+                translateY(-2px);
+        }
+
+
+        .btn-primary {
+
+            background:
+                var(--accent);
+
+            color:
+                #111;
+        }
+
+
+        .btn-primary:hover {
+
+            background:
+                var(--accent-light);
+        }
+
+
+        .btn-secondary {
+
+            background:
+                var(--card);
+
+            color:
+                var(--text);
+
+            border:
+                1px solid var(--border);
+        }
+
+
+        /* =========================================================
+           STATS
+        ========================================================= */
+
+        .stats {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap:
+                15px;
+
+            margin-top:
+                60px;
+
+            max-width:
+                750px;
+        }
+
+
+        .stat {
+
+            padding:
+                20px;
+
+            border:
+                1px solid var(--border);
+
+            background:
+                rgba(255,255,255,0.025);
+
+            border-radius:
+                12px;
+        }
+
+
+        .stat strong {
+
+            display:
+                block;
+
+            font-size:
+                1.5rem;
+        }
+
+
+        .stat span {
+
+            color:
+                var(--muted);
+
+            font-size:
+                0.85rem;
+        }
+
+
+        /* =========================================================
+           PAGE SYSTEM
+        ========================================================= */
+
+        .page {
+
+            display:
+                none;
+
+            animation:
+                pageIn 0.3s ease;
+        }
+
+
+        .page.active {
+
+            display:
+                block;
+        }
+
+
+        @keyframes pageIn {
+
+            from {
+
+                opacity:
+                    0;
+
+                transform:
+                    translateY(8px);
+            }
+
+            to {
+
+                opacity:
+                    1;
+
+                transform:
+                    translateY(0);
+            }
+        }
+
+
+        /* =========================================================
+           SEARCH PAGE
+        ========================================================= */
+
+        .search-hero {
+
+            padding:
+                80px 0 35px;
+        }
+
+
+        .search-box {
+
+            max-width:
+                800px;
+
+            margin:
+                25px auto;
+
+            display:
+                flex;
+
+            gap:
+                10px;
+        }
+
+
+        .search-input-wrap {
+
+            flex:
+                1;
+
+            position:
+                relative;
+        }
+
+
+        .search-input {
+
+            width:
+                100%;
+
+            padding:
+                16px 18px;
+
+            border:
+                1px solid var(--border);
+
+            background:
+                var(--card);
+
+            color:
+                var(--text);
+
+            border-radius:
+                10px;
+
+            outline:
+                none;
+        }
+
+
+        .search-input:focus {
+
+            border-color:
+                var(--accent);
+        }
+
+
+        .search-results-info {
+
+            text-align:
+                center;
+
+            color:
+                var(--muted);
+
+            margin:
+                20px 0;
+        }
+
+
+        /* =========================================================
+           BOOK GRID
+        ========================================================= */
+
+        .book-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap:
+                22px;
+        }
+
+
+        .book-card {
+
+            background:
+                var(--card);
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                14px;
+
+            overflow:
+                hidden;
+
+            transition:
+                transform 0.25s,
+                border-color 0.25s,
+                background 0.25s;
+
+            position:
+                relative;
+        }
+
+
+        .book-card:hover {
+
+            transform:
+                translateY(-6px);
+
+            background:
+                var(--card-hover);
+
+            border-color:
+                rgba(245,158,11,0.45);
+        }
+
+
+        .cover {
+
+            height:
+                290px;
+
+            background:
+                #27272a;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            overflow:
+                hidden;
+
+            position:
+                relative;
+        }
+
+
+        .cover img {
+
+            width:
+                100%;
+
+            height:
+                100%;
+
+            object-fit:
+                cover;
+        }
+
+
+        .cover-placeholder {
+
+            width:
+                100%;
+
+            height:
+                100%;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            padding:
+                25px;
+
+            text-align:
+                center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #18181b,
+                    #3f3f46
+                );
+
+            color:
+                white;
+
+            font-weight:
+                900;
+
+            font-size:
+                1.2rem;
+        }
+
+
+        .favorite {
+
+            position:
+                absolute;
+
+            top:
+                12px;
+
+            right:
+                12px;
+
+            width:
+                38px;
+
+            height:
+                38px;
+
+            border:
+                none;
+
+            border-radius:
+                50%;
+
+            background:
+                rgba(0,0,0,0.65);
+
+            color:
+                white;
+
+            font-size:
+                1.1rem;
+
+            z-index:
+                5;
+        }
+
+
+        .favorite.saved {
+
+            color:
+                #ef4444;
+        }
+
+
+        .book-body {
+
+            padding:
+                18px;
+        }
+
+
+        .book-title {
+
+            font-size:
+                1.08rem;
+
+            font-weight:
+                800;
+
+            margin-bottom:
+                5px;
+
+            display:
+                -webkit-box;
+
+            -webkit-line-clamp:
+                2;
+
+            -webkit-box-orient:
+                vertical;
+
+            overflow:
+                hidden;
+        }
+
+
+        .book-author {
+
+            color:
+                var(--accent-light);
+
+            font-size:
+                0.85rem;
+
+            margin-bottom:
+                10px;
+        }
+
+
+        .book-meta {
+
+            display:
+                flex;
+
+            flex-wrap:
+                wrap;
+
+            gap:
+                8px;
+
+            margin-bottom:
+                15px;
+        }
+
+
+        .tag {
+
+            padding:
+                4px 8px;
+
+            border-radius:
+                5px;
+
+            background:
+                rgba(255,255,255,0.05);
+
+            color:
+                var(--muted);
+
+            font-size:
+                0.72rem;
+        }
+
+
+        .book-actions {
+
+            display:
+                flex;
+
+            gap:
+                8px;
+        }
+
+
+        .book-actions .btn {
+
+            flex:
+                1;
+
+            padding:
+                9px 10px;
+
+            font-size:
+                0.82rem;
+        }
+
+
+        /* =========================================================
+           FEATURED SECTION
+        ========================================================= */
+
+        .featured {
+
+            background:
+                var(--bg-soft);
+        }
+
+
+        /* =========================================================
+           CATEGORIES
+        ========================================================= */
+
+        .category-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap:
+                18px;
+        }
+
+
+        .category-card {
+
+            min-height:
+                160px;
+
+            padding:
+                25px;
+
+            border:
+                1px solid var(--border);
+
+            background:
+                var(--card);
+
+            border-radius:
+                14px;
+
+            display:
+                flex;
+
+            flex-direction:
+                column;
+
+            justify-content:
+                space-between;
+
+            transition:
+                transform 0.2s,
+                border-color 0.2s;
+        }
+
+
+        .category-card:hover {
+
+            transform:
+                translateY(-5px);
+
+            border-color:
+                var(--accent);
+        }
+
+
+        .category-icon {
+
+            font-size:
+                2rem;
+        }
+
+
+        .category-card h3 {
+
+            margin-top:
+                15px;
+        }
+
+
+        .category-card p {
+
+            color:
+                var(--muted);
+
+            font-size:
+                0.85rem;
+        }
+
+
+        /* =========================================================
+           LEARNING SECTION
+        ========================================================= */
+
+        .learn-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap:
+                20px;
+        }
+
+
+        .learn-card {
+
+            padding:
+                28px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                14px;
+
+            background:
+                var(--card);
+        }
+
+
+        .learn-icon {
+
+            font-size:
+                2rem;
+
+            margin-bottom:
+                15px;
+        }
+
+
+        .learn-card h3 {
+
+            margin-bottom:
+                8px;
+        }
+
+
+        .learn-card p {
+
+            color:
+                var(--muted);
+        }
+
+
+        /* =========================================================
+           READING ROADMAP
+        ========================================================= */
+
+        .roadmap {
+
+            max-width:
+                850px;
+
+            margin:
+                0 auto;
+        }
+
+
+        .roadmap-item {
+
+            display:
+                flex;
+
+            gap:
+                20px;
+
+            padding:
+                25px;
+
+            margin-bottom:
+                14px;
+
+            border:
+                1px solid var(--border);
+
+            background:
+                var(--card);
+
+            border-radius:
+                14px;
+        }
+
+
+        .roadmap-number {
+
+            min-width:
+                48px;
+
+            height:
+                48px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            border-radius:
+                50%;
+
+            background:
+                var(--accent);
+
+            color:
+                #111;
+
+            font-weight:
+                900;
+        }
+
+
+        .roadmap-item p {
+
+            color:
+                var(--muted);
+        }
+
+
+        /* =========================================================
+           ABOUT PAGE
+        ========================================================= */
+
+        .about-box {
+
+            max-width:
+                850px;
+
+            margin:
+                auto;
+
+            padding:
+                40px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                16px;
+
+            background:
+                var(--card);
+        }
+
+
+        .about-box p {
+
+            color:
+                var(--muted);
+
+            margin-bottom:
+                18px;
+        }
+
+
+        /* =========================================================
+           LOADING
+        ========================================================= */
+
+        .loading {
+
+            padding:
+                60px;
+
+            text-align:
+                center;
+
+            color:
+                var(--muted);
+        }
+
+
+        .spinner {
+
+            width:
+                35px;
+
+            height:
+                35px;
+
+            margin:
+                0 auto 15px;
+
+            border:
+                3px solid var(--border);
+
+            border-top-color:
+                var(--accent);
+
+            border-radius:
+                50%;
+
+            animation:
+                spin 0.8s linear infinite;
+        }
+
+
+        @keyframes spin {
+
+            to {
+                transform:
+                    rotate(360deg);
+            }
+        }
+
+
+        /* =========================================================
+           EMPTY STATE
+        ========================================================= */
+
+        .empty {
+
+            padding:
+                60px 20px;
+
+            text-align:
+                center;
+
+            color:
+                var(--muted);
+        }
+
+
+        .empty strong {
+
+            display:
+                block;
+
+            color:
+                var(--text);
+
+            font-size:
+                1.3rem;
+
+            margin-bottom:
+                8px;
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+
+            border-top:
+                1px solid var(--border);
+
+            padding:
+                45px 0 25px;
+
+            margin-top:
+                50px;
+        }
+
+
+        .footer-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                2fr 1fr 1fr;
+
+            gap:
+                40px;
+
+            margin-bottom:
+                35px;
+        }
+
+
+        .footer-column h3 {
+
+            margin-bottom:
+                12px;
+        }
+
+
+        .footer-column p,
+        .footer-column button {
+
+            color:
+                var(--muted);
+        }
+
+
+        .footer-column button {
+
+            display:
+                block;
+
+            background:
+                none;
+
+            border:
+                none;
+
+            margin:
+                8px 0;
+        }
+
+
+        .footer-column button:hover {
+
+            color:
+                var(--accent);
+        }
+
+
+        .footer-bottom {
+
+            border-top:
+                1px solid var(--border);
+
+            padding-top:
+                20px;
+
+            color:
+                var(--muted);
+
+            text-align:
+                center;
+
+            font-size:
+                0.85rem;
+        }
+
+
+        /* =========================================================
+           BACK TO TOP
+        ========================================================= */
+
+        .top-button {
+
+            position:
+                fixed;
+
+            right:
+                20px;
+
+            bottom:
+                20px;
+
+            width:
+                45px;
+
+            height:
+                45px;
+
+            border:
+                none;
+
+            border-radius:
+                50%;
+
+            background:
+                var(--accent);
+
+            color:
+                #111;
+
+            font-size:
+                1.2rem;
+
+            z-index:
+                999;
+
+            opacity:
+                0;
+
+            pointer-events:
+                none;
+
+            transition:
+                opacity 0.2s;
+        }
+
+
+        .top-button.visible {
+
+            opacity:
+                1;
+
+            pointer-events:
+                auto;
+        }
+
+
+        /* =========================================================
+           TOAST
+        ========================================================= */
+
+        .toast {
+
+            position:
+                fixed;
+
+            left:
+                50%;
+
+            bottom:
+                25px;
+
+            transform:
+                translate(-50%, 100px);
+
+            padding:
+                12px 18px;
+
+            background:
+                #27272a;
+
+            color:
+                white;
+
+            border:
+                1px solid #3f3f46;
+
+            border-radius:
+                8px;
+
+            z-index:
+                3000;
+
+            transition:
+                transform 0.3s;
+        }
+
+
+        .toast.show {
+
+            transform:
+                translate(-50%, 0);
+        }
+
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media (max-width: 1000px) {
+
+            .book-grid {
+                grid-template-columns:
+                    repeat(3, 1fr);
+            }
+
+            .category-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .learn-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+        }
+
+
+        @media (max-width: 750px) {
+
+            .nav-links {
+                display:
+                    none;
+
+                position:
+                    absolute;
+
+                top:
+                    72px;
+
+                left:
+                    0;
+
+                right:
+                    0;
+
+                padding:
+                    20px;
+
+                background:
+                    var(--card);
+
+                border-bottom:
+                    1px solid var(--border);
+
+                flex-direction:
+                    column;
+
+                align-items:
+                    stretch;
+            }
+
+
+            .nav-links.open {
+                display:
+                    flex;
+            }
+
+
+            .nav-links button {
+                padding:
+                    10px;
+
+                text-align:
+                    left;
+            }
+
+
+            .mobile-menu {
+                display:
+                    block;
+            }
+
+
+            .book-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+
+            .footer-grid {
+                grid-template-columns:
+                    1fr;
+            }
+        }
+
+
+        @media (max-width: 520px) {
+
+            .hero h1 {
+                letter-spacing:
+                    -3px;
+            }
+
+
+            .stats {
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .book-grid,
+            .category-grid,
+            .learn-grid {
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .cover {
+                height:
+                    330px;
+            }
+
+
+            .search-box {
+                flex-direction:
+                    column;
+            }
+
+
+            .search-box .btn {
+                width:
+                    100%;
+            }
+
+
+            .roadmap-item {
+                align-items:
+                    flex-start;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================================
+         HEADER
+    ========================================================== -->
+
+    <header class="header">
+
+        <div class="container nav">
+
+            <button
+                class="logo"
+                data-page="home"
+                style="
+                    background:none;
+                    border:none;
+                    color:inherit;
+                    cursor:pointer;
+                "
+            >
+                Mind<span>Shelf</span>
+            </button>
+
+
+            <nav>
+
+                <ul
+                    class="nav-links"
+                    id="navLinks"
+                >
+
+                    <li>
+                        <button
+                            data-page="home"
+                            class="nav-link active"
+                        >
+                            Home
+                        </button>
+                    </li>
+
+                    <li>
+                        <button
+                            data-page="explore"
+                            class="nav-link"
+                        >
+                            Explore
+                        </button>
+                    </li>
+
+                    <li>
+                        <button
+                            data-page="categories"
+                            class="nav-link"
+                        >
+                            Categories
+                        </button>
+                    </li>
+
+                    <li>
+                        <button
+                            data-page="about"
+                            class="nav-link"
+                        >
+                            About
+                        </button>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+
+            <div class="nav-actions">
+
+                <button
+                    class="icon-btn"
+                    id="themeButton"
+                    aria-label="Change theme"
+                    title="Change theme"
+                >
+                    ☀️
+                </button>
+
+
+                <button
+                    class="mobile-menu"
+                    id="mobileMenu"
+                    aria-label="Open menu"
+                >
+                    ☰
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================================================
+         HOME PAGE
+    ========================================================== -->
+
+    <main
+        id="homePage"
+        class="page active"
+    >
+
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <div class="container">
+
+                <div class="hero-content">
+
+                    <div class="eyebrow">
+                        📚 Discover your next great book
+                    </div>
+
+
+                    <h1>
+                        Read.
+                        <span>Think.</span>
+                        Grow.
+                    </h1>
+
+
+                    <p class="hero-description">
+
+                        A good book doesn't just give you
+                        information. It can give you a completely
+                        different way to look at money, success,
+                        habits, investing and life.
+
+                    </p>
+
+
+                    <div class="hero-actions">
+
+                        <button
+                            class="btn btn-primary"
+                            data-page="explore"
+                        >
+                            Explore Books →
+                        </button>
+
+
+                        <button
+                            class="btn btn-secondary"
+                            data-page="categories"
+                        >
+                            Browse Categories
+                        </button>
+
+                    </div>
+
+
+                    <div class="stats">
+
+                        <div class="stat">
+
+                            <strong>
+                                📚 1000s
+                            </strong>
+
+                            <span>
+                                Searchable books
+                            </span>
+
+                        </div>
+
+
+                        <div class="stat">
+
+                            <strong>
+                                🔎 Smart Search
+                            </strong>
+
+                            <span>
+                                Search beyond featured books
+                            </span>
+
+                        </div>
+
+
+                        <div class="stat">
+
+                            <strong>
+                                ❤️ Favorites
+                            </strong>
+
+                            <span>
+                                Save books in your browser
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- FEATURED BOOKS -->
+
+        <section class="section featured">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <div class="eyebrow">
+                        ⭐ Hand-picked
+                    </div>
+
+                    <h2>
+                        Start With These
+                    </h2>
+
+                    <p>
+                        A few powerful books to get your
+                        reading journey started.
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="book-grid"
+                    id="featuredGrid"
+                >
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- LEARNING -->
+
+        <section class="section">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <div class="eyebrow">
+                        💡 Why read?
+                    </div>
+
+                    <h2>
+                        More Than Just Books
+                    </h2>
+
+                    <p>
+                        The goal isn't to collect books.
+                        The goal is to collect useful ideas.
+                    </p>
+
+                </div>
+
+
+                <div class="learn-grid">
+
+                    <article class="learn-card">
+
+                        <div class="learn-icon">
+                            🧠
+                        </div>
+
+                        <h3>
+                            Think Better
+                        </h3>
+
+                        <p>
+                            Discover ideas that challenge
+                            the way you normally look at problems.
+                        </p>
+
+                    </article>
+
+
+                    <article class="learn-card">
+
+                        <div class="learn-icon">
+                            💰
+                        </div>
+
+                        <h3>
+                            Understand Money
+                        </h3>
+
+                        <p>
+                            Explore books about financial
+                            behavior, saving and investing.
+                        </p>
+
+                    </article>
+
+
+                    <article class="learn-card">
+
+                        <div class="learn-icon">
+                            🎯
+                        </div>
+
+                        <h3>
+                            Build Better Habits
+                        </h3>
+
+                        <p>
+                            Learn how small actions can become
+                            powerful long-term habits.
+                        </p>
+
+                    </article>
+
+
+                    <article class="learn-card">
+
+                        <div class="learn-icon">
+                            📈
+                        </div>
+
+                        <h3>
+                            Think Long-Term
+                        </h3>
+
+                        <p>
+                            Understand why patience and
+                            consistency can matter.
+                        </p>
+
+                    </article>
+
+
+                    <article class="learn-card">
+
+                        <div class="learn-icon">
+                            🚀
+                        </div>
+
+                        <h3>
+                            Grow
+                        </h3>
+
+                        <p>
+                            Use ideas from books to keep
+                            improving your knowledge.
+                        </p>
+
+                    </article>
+
+
+                    <article class="learn-card">
+
+                        <div class="learn-icon">
+                            🌎
+                        </div>
+
+                        <h3>
+                            See Different Perspectives
+                        </h3>
+
+                        <p>
+                            Great books let you explore ideas
+                            and experiences outside your own.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- READING PATH -->
+
+        <section class="section featured">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <div class="eyebrow">
+                        🛣️ Beginner path
+                    </div>
+
+                    <h2>
+                        Where Should You Start?
+                    </h2>
+
+                    <p>
+                        Try this simple path if you're new
+                        to books about money and personal growth.
+                    </p>
+
+                </div>
+
+
+                <div class="roadmap">
+
+                    <div class="roadmap-item">
+
+                        <div class="roadmap-number">
+                            1
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Rich Dad Poor Dad
+                            </h3>
+
+                            <p>
+                                Start with basic ideas about
+                                money, assets and financial thinking.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="roadmap-item">
+
+                        <div class="roadmap-number">
+                            2
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                The Psychology of Money
+                            </h3>
+
+                            <p>
+                                Understand the behavioral side
+                                of financial decisions.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="roadmap-item">
+
+                        <div class="roadmap-number">
+                            3
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                The Intelligent Investor
+                            </h3>
+
+                            <p>
+                                Move into deeper ideas around
+                                investing and risk.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================================================
+         EXPLORE PAGE
+    ========================================================== -->
+
+    <main
+        id="explorePage"
+        class="page"
+    >
+
+        <section class="search-hero">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <div class="eyebrow">
+                        🔎 Book search
+                    </div>
+
+                    <h2>
+                        Find Almost Any Book
+                    </h2>
+
+                    <p>
+                        Search by title, author, subject
+                        or keywords.
+                    </p>
+
+                </div>
+
+
+                <form
+                    class="search-box"
+                    id="searchForm"
+                >
+
+                    <div class="search-input-wrap">
+
+                        <input
+                            type="search"
+                            id="searchInput"
+                            class="search-input"
+                            placeholder="Try: The $100 Startup"
+                            autocomplete="off"
+                            aria-label="Search for books"
+                        >
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary"
+                    >
+                        Search 🔎
+                    </button>
+
+                </form>
+
+
+                <p
+                    id="searchInfo"
+                    class="search-results-info"
+                >
+                    Try searching for any book.
+                </p>
+
+
+                <div
+                    id="searchLoading"
+                    class="loading hidden"
+                >
+
+                    <div class="spinner"></div>
+
+                    Searching the book catalog...
+
+                </div>
+
+
+                <div
+                    id="searchResults"
+                    class="book-grid"
+                >
+
+                </div>
+
+
+                <div
+                    id="searchEmpty"
+                    class="empty hidden"
+                >
+
+                    <strong>
+                        No books found
+                    </strong>
+
+                    Try another title, author or keyword.
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =========================================================
+         CATEGORIES PAGE
+    ========================================================== -->
+
+    <main
+        id="categoriesPage"
+        class="page"
+    >
+
+        <section class="section">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <div class="eyebrow">
+                        🗂️ Browse
+                    </div>
+
+                    <h2>
+                        Explore by Category
+                    </h2>
+
+                    <p>
+                        Choose a topic and discover books
+                        related to it.
+                    </p>
+
+                </div>
+
+
+                <div class="category-grid">
+
+
+                    <button
+                        class="category-card"
+                        data-category="business"
+                    >
+
+                        <div class="category-icon">
+                            💼
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Business
+                            </h3>
+
+                            <p>
+                                Entrepreneurship and business.
+                            </p>
+
+                        </div>
+
+                    </button>
+
+
+                    <button
+                        class="category-card"
+                        data-category="finance"
+                    >
+
+                        <div class="category-icon">
+                            💰
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Money & Finance
+                            </h3>
+
+                            <p>
+                                Money, investing and wealth.
+                            </p>
+
+                        </div>
+
+                    </button>
+
+
+                    <button
+                        class="category-card"
+                        data-category="self-help"
+                    >
+
+                        <div class="category-icon">
+                            🧠
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Self Improvement
+                            </h3>
+
+                            <p>
+                                Habits, mindset and growth.
+                            </p>
+
+                        </div>
+
+                    </button>
+
+
+                    <button
+                        class="category-card"
+                        data-category="psychology"
+                    >
+
+                        <div class="category-icon">
+                            🧩
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Psychology
+                            </h3>
+
+                            <p>
+                                Human behavior and thinking.
+                            </p>
+
+                        </div>
+
+                    </button>
+
+
+                    <button
+                        class="category-card"
+                        data-category="science"
+                    >
+
+                        <div class="category-icon">
+                            🔬
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Science
+                            </h3>
+
+                            <p>
+                                Discover scientific ideas.
+                            </p>
+
+                        </div>
+
+                    </button>
+
+
+                    <button
+                        class="category-card"
+                        data-category="technology"
+                    >
+
+                        <div class="category-icon">
+                            💻
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Technology
+                            </h3>
+
+                            <p>
+                                Programming and technology.
+                            </p>
+
+                        </div>
+
+                    </button>
+
+
+                    <button
+                        class="category-card"
+                        data-category="fiction"
+                    >
+
+                        <div class="category-icon">
+                            📖
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Fiction
+                            </h3>
+
+                            <p>
+                                Stories and imagination.
+                            </p>
+
+                        </div>
+
+                    </button>
+
+
+                    <button
+                        class="category-card"
+                        data-category="history"
+                    >
+
+                        <div class="category-icon">
+                            🏛️
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                History
+                            </h3>
+
+                            <p>
+                                People, places and events.
+                            </p>
+
+                        </div>
+
+                    </button>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =========================================================
+         ABOUT PAGE
+    ========================================================== -->
+
+    <main
+        id="aboutPage"
+        class="page"
+    >
+
+        <section class="section">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <div class="eyebrow">
+                        ℹ️ About MindShelf
+                    </div>
+
+                    <h2>
+                        A Place for Curious Minds
+                    </h2>
+
+                    <p>
+                        Built around one simple idea:
+                        reading should help you think.
+                    </p>
+
+                </div>
+
+
+                <div class="about-box">
+
+                    <p>
+
+                        MindShelf is a simple book-discovery
+                        website designed to help people find
+                        useful books without feeling overwhelmed
+                        by thousands of choices.
+
+                    </p>
+
+
+                    <p>
+
+                        The featured collection focuses on
+                        money, investing, habits, psychology,
+                        business and personal development.
+
+                    </p>
+
+
+                    <p>
+
+                        But the website isn't limited to those
+                        books. The Explore page connects to the
+                        Open Library search service so visitors
+                        can search for books beyond the featured
+                        collection.
+
+                    </p>
+
+
+                    <p>
+
+                        A book is not valuable simply because
+                        it is popular. What matters is what you
+                        understand, question and apply after
+                        reading it.
+
+                    </p>
+
+
+                    <button
+                        class="btn btn-primary"
+                        data-page="explore"
+                    >
+                        Start Exploring →
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
+    <footer>
+
+        <div class="container">
+
+            <div class="footer-grid">
+
+
+                <div class="footer-column">
+
+                    <div class="logo">
+                        Mind<span>Shelf</span>
+                    </div>
+
+                    <p style="margin-top:12px;">
+
+                        Discover books.
+                        Explore ideas.
+                        Keep growing.
+
+                    </p>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h3>
+                        Pages
+                    </h3>
+
+                    <button data-page="home">
+                        Home
+                    </button>
+
+                    <button data-page="explore">
+                        Explore
+                    </button>
+
+                    <button data-page="categories">
+                        Categories
+                    </button>
+
+                    <button data-page="about">
+                        About
+                    </button>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h3>
+                        Quick Search
+                    </h3>
+
+                    <button
+                        data-search="The $100 Startup"
+                    >
+                        The $100 Startup
+                    </button>
+
+                    <button
+                        data-search="Atomic Habits"
+                    >
+                        Atomic Habits
+                    </button>
+
+                    <button
+                        data-search="The Psychology of Money"
+                    >
+                        Psychology of Money
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                © 2026 MindShelf.
+                Built for curious minds.
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =========================================================
+         BACK TO TOP
+    ========================================================== -->
+
+    <button
+        id="topButton"
+        class="top-button"
+        aria-label="Back to top"
+    >
+        ↑
+    </button>
+
+
+    <!-- =========================================================
+         TOAST
+    ========================================================== -->
+
+    <div
+        id="toast"
+        class="toast"
+    >
+        Saved!
+    </div>
+
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================== -->
+
+    <script>
+
+
+        /* =========================================================
+           FEATURED BOOK DATA
+        ========================================================= */
+
+        const featuredBooks = [
+
+            {
+                title:
+                    "Rich Dad Poor Dad",
+
+                author:
+                    "Robert T. Kiyosaki",
+
+                year:
+                    "1997",
+
+                cover:
+                    "https://covers.openlibrary.org/b/isbn/9781612680194-L.jpg",
+
+                link:
+                    "https://openlibrary.org/search?q=Rich+Dad+Poor+Dad"
+            },
+
+
+            {
+                title:
+                    "The Psychology of Money",
+
+                author:
+                    "Morgan Housel",
+
+                year:
+                    "2020",
+
+                cover:
+                    "https://covers.openlibrary.org/b/isbn/9780857197689-L.jpg",
+
+                link:
+                    "https://openlibrary.org/search?q=The+Psychology+of+Money"
+            },
+
+
+            {
+                title:
+                    "The Intelligent Investor",
+
+                author:
+                    "Benjamin Graham",
+
+                year:
+                    "1949",
+
+                cover:
+                    "https://covers.openlibrary.org/b/isbn/9780060555665-L.jpg",
+
+                link:
+                    "https://openlibrary.org/search?q=The+Intelligent+Investor"
+            },
+
+
+            {
+                title:
+                    "Atomic Habits",
+
+                author:
+                    "James Clear",
+
+                year:
+                    "2018",
+
+                cover:
+                    "https://covers.openlibrary.org/b/isbn/9780735211292-L.jpg",
+
+                link:
+                    "https://openlibrary.org/search?q=Atomic+Habits"
+            }
+
+        ];
+
+
+        /* =========================================================
+           ELEMENTS
+        ========================================================== */
+
+        const pages =
+            document.querySelectorAll(".page");
+
+        const navLinks =
+            document.querySelectorAll(".nav-link");
+
+        const navMenu =
+            document.getElementById("navLinks");
+
+        const mobileMenu =
+            document.getElementById("mobileMenu");
+
+        const themeButton =
+            document.getElementById("themeButton");
+
+        const featuredGrid =
+            document.getElementById("featuredGrid");
+
+        const searchForm =
+            document.getElementById("searchForm");
+
+        const searchInput =
+            document.getElementById("searchInput");
+
+        const searchResults =
+            document.getElementById("searchResults");
+
+        const searchLoading =
+            document.getElementById("searchLoading");
+
+        const searchEmpty =
+            document.getElementById("searchEmpty");
+
+        const searchInfo =
+            document.getElementById("searchInfo");
+
+        const toast =
+            document.getElementById("toast");
+
+        const topButton =
+            document.getElementById("topButton");
+
+
+        /* =========================================================
+           THEME
+        ========================================================== */
+
+        const savedTheme =
+            localStorage.getItem("mindshelf-theme");
+
+
+        if (savedTheme === "light") {
+
+            document.body.classList.add("light");
+
+            themeButton.textContent =
+                "🌙";
+
+        } else {
+
+            themeButton.textContent =
+                "☀️";
+        }
+
+
+        themeButton.addEventListener(
+            "click",
+            function () {
+
+                document.body.classList.toggle(
+                    "light"
+                );
+
+
+                const isLight =
+                    document.body.classList.contains(
+                        "light"
+                    );
+
+
+                localStorage.setItem(
+                    "mindshelf-theme",
+                    isLight
+                        ? "light"
+                        : "dark"
+                );
+
+
+                themeButton.textContent =
+                    isLight
+                        ? "🌙"
+                        : "☀️";
+
+            }
+        );
+
+
+        /* =========================================================
+           PAGE NAVIGATION
+        ========================================================== */
+
+        function showPage(pageName) {
+
+            pages.forEach(
+                function (page) {
+
+                    page.classList.remove(
+                        "active"
+                    );
+
+                }
+            );
+
+
+            const selectedPage =
+                document.getElementById(
+                    pageName + "Page"
+                );
+
+
+            if (selectedPage) {
+
+                selectedPage.classList.add(
+                    "active"
+                );
+
+            }
+
+
+            navLinks.forEach(
+                function (link) {
+
+                    link.classList.remove(
+                        "active"
+                    );
+
+
+                    if (
+                        link.dataset.page ===
+                        pageName
+                    ) {
+
+                        link.classList.add(
+                            "active"
+                        );
+
+                    }
+
+                }
+            );
+
+
+            navMenu.classList.remove(
+                "open"
+            );
+
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+
+            history.pushState(
+                {
+                    page: pageName
+                },
+                "",
+                "#" + pageName
+            );
+
+        }
+
+
+        document.addEventListener(
+            "click",
+            function (event) {
+
+                const pageButton =
+                    event.target.closest(
+                        "[data-page]"
+                    );
+
+
+                if (!pageButton) {
+                    return;
+                }
+
+
+                showPage(
+                    pageButton.dataset.page
+                );
+
+            }
+        );
+
+
+        window.addEventListener(
+            "popstate",
+            function () {
+
+                const page =
+                    location.hash
+                        .replace("#", "") ||
+                    "home";
+
+
+                showPageWithoutHistory(
+                    page
+                );
+
+            }
+        );
+
+
+        function showPageWithoutHistory(
+            pageName
+        ) {
+
+            pages.forEach(
+                function (page) {
+
+                    page.classList.remove(
+                        "active"
+                    );
+
+                }
+            );
+
+
+            const page =
+                document.getElementById(
+                    pageName + "Page"
+                );
+
+
+            if (page) {
+
+                page.classList.add(
+                    "active"
+                );
+
+            } else {
+
+                document.getElementById(
+                    "homePage"
+                ).classList.add(
+                    "active"
+                );
+
+            }
+
+
+            navLinks.forEach(
+                function (link) {
+
+                    link.classList.toggle(
+                        "active",
+                        link.dataset.page ===
+                        pageName
+                    );
+
+                }
+            );
+
+        }
+
+
+        /* =========================================================
+           MOBILE MENU
+        ========================================================== */
+
+        mobileMenu.addEventListener(
+            "click",
+            function () {
+
+                navMenu.classList.toggle(
+                    "open"
+                );
+
+            }
+        );
+
+
+        /* =========================================================
+           FAVORITES
+        ========================================================== */
+
+        function getFavorites() {
+
+            return JSON.parse(
+                localStorage.getItem(
+                    "mindshelf-favorites"
+                ) || "[]"
+            );
+
+        }
+
+
+        function saveFavorites(
+            favorites
+        ) {
+
+            localStorage.setItem(
+                "mindshelf-favorites",
+                JSON.stringify(
+                    favorites
+                )
+            );
+
+        }
+
+
+        function toggleFavorite(
+            title
+        ) {
+
+            let favorites =
+                getFavorites();
+
+
+            if (
+                favorites.includes(
+                    title
+                )
+            ) {
+
+                favorites =
+                    favorites.filter(
+                        function (item) {
+
+                            return item !==
+                                title;
+
+                        }
+                    );
+
+
+                showToast(
+                    "Removed from favorites"
+                );
+
+            } else {
+
+                favorites.push(
+                    title
+                );
+
+
+                showToast(
+                    "Added to favorites ❤️"
+                );
+
+            }
+
+
+            saveFavorites(
+                favorites
+            );
+
+            renderFeatured();
+
+        }
+
+
+        /* =========================================================
+           BOOK CARD HTML
+        ========================================================== */
+
+        function createBookCard(
+            book,
+            source = "api"
+        ) {
+
+            const title =
+                book.title ||
+                "Unknown title";
+
+
+            const author =
+                book.author_name &&
+                book.author_name.length
+                    ? book.author_name
+                        .slice(0, 2)
+                        .join(", ")
+                    : (
+                        book.author ||
+                        "Unknown author"
+                    );
+
+
+            const year =
+                book.first_publish_year ||
+                book.year ||
+                "Year unknown";
+
+
+            const cover =
+                book.cover_i
+                    ? "https://covers.openlibrary.org/b/id/" +
+                      book.cover_i +
+                      "-L.jpg"
+                    : (
+                        book.cover ||
+                        ""
+                    );
+
+
+            const link =
+                book.key
+                    ? "https://openlibrary.org" +
+                      book.key
+                    : (
+                        book.link ||
+                        "https://openlibrary.org/search?q=" +
+                        encodeURIComponent(title)
+                    );
+
+
+            const favorites =
+                getFavorites();
+
+
+            const saved =
+                favorites.includes(
+                    title
+                );
+
+
+            const card =
+                document.createElement(
+                    "article"
+                );
+
+
+            card.className =
+                "book-card";
+
+
+            card.innerHTML = `
+
+                <div class="cover">
+
+                    ${
+                        cover
+
+                        ? `
+                            <img
+                                src="${escapeHTML(cover)}"
+                                alt="Cover of ${escapeHTML(title)}"
+                                loading="lazy"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                            >
+
+                            <div
+                                class="cover-placeholder"
+                                style="display:none;"
+                            >
+                                ${escapeHTML(title)}
+                            </div>
+                        `
+
+                        : `
+                            <div class="cover-placeholder">
+                                ${escapeHTML(title)}
+                            </div>
+                        `
+                    }
+
+
+                    <button
+                        class="favorite ${
+                            saved ? "saved" : ""
+                        }"
+                        aria-label="Save ${escapeHTML(title)}"
+                        title="Save to favorites"
+                    >
+                        ${
+                            saved
+                                ? "♥"
+                                : "♡"
+                        }
+                    </button>
+
+                </div>
+
+
+                <div class="book-body">
+
+                    <div class="book-title">
+                        ${escapeHTML(title)}
+                    </div>
+
+
+                    <div class="book-author">
+                        ${escapeHTML(author)}
+                    </div>
+
+
+                    <div class="book-meta">
+
+                        <span class="tag">
+                            📅 ${escapeHTML(String(year))}
+                        </span>
+
+                        ${
+                            source === "api"
+                                ? `
+                                    <span class="tag">
+                                        📚 Open Library
+                                    </span>
+                                `
+                                : `
+                                    <span class="tag">
+                                        ⭐ Featured
+                                    </span>
+                                `
+                        }
+
+                    </div>
+
+
+                    <div class="book-actions">
+
+                        <a
+                            class="btn btn-primary"
+                            href="${escapeHTML(link)}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            View Book
+                        </a>
+
+                        <button
+                            class="btn btn-secondary save-book"
+                        >
+                            ${
+                                saved
+                                    ? "Saved"
+                                    : "Save"
+                            }
+                        </button>
+
+                    </div>
+
+                </div>
+            `;
+
+
+            card
+                .querySelector(".favorite")
+                .addEventListener(
+                    "click",
+                    function () {
+
+                        toggleFavorite(
+                            title
+                        );
+
+                    }
+                );
+
+
+            card
+                .querySelector(".save-book")
+                .addEventListener(
+                    "click",
+                    function () {
+
+                        toggleFavorite(
+                            title
+                        );
+
+                    }
+                );
+
+
+            return card;
+
+        }
+
+
+        /* =========================================================
+           FEATURED BOOKS
+        ========================================================== */
+
+        function renderFeatured() {
+
+            featuredGrid.innerHTML =
+                "";
+
+
+            featuredBooks.forEach(
+                function (book) {
+
+                    featuredGrid.appendChild(
+                        createBookCard(
+                            book,
+                            "featured"
+                        )
+                    );
+
+                }
+            );
+
+        }
+
+
+        renderFeatured();
+
+
+        /* =========================================================
+           SEARCH
+        ========================================================== */
+
+        searchForm.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+
+                const query =
+                    searchInput.value.trim();
+
+
+                if (!query) {
+
+                    showToast(
+                        "Enter a book title or author"
+                    );
+
+                    searchInput.focus();
+
+                    return;
+
+                }
+
+
+                searchBooks(
+                    query
+                );
+
+            }
+        );
+
+
+        async function searchBooks(
+            query
+        ) {
+
+            searchResults.innerHTML =
+                "";
+
+            searchEmpty.classList.add(
+                "hidden"
+            );
+
+            searchLoading.classList.remove(
+                "hidden"
+            );
+
+
+            searchInfo.textContent =
+                "Searching for \"" +
+                query +
+                "\"...";
+
+
+            try {
+
+                /*
+                 Open Library's Search API.
+
+                 We request only the fields
+                 we actually need.
+                */
+
+                const apiURL =
+                    "https://openlibrary.org/search.json" +
+                    "?q=" +
+                    encodeURIComponent(query) +
+                    "&fields=key,title,author_name,first_publish_year,cover_i" +
+                    "&limit=24";
+
+
+                const response =
+                    await fetch(
+                        apiURL
+                    );
+
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        "Search request failed"
+                    );
+
+                }
+
+
+                const data =
+                    await response.json();
+
+
+                const books =
+                    data.docs || [];
+
+
+                searchLoading.classList.add(
+                    "hidden"
+                );
+
+
+                if (
+                    books.length === 0
+                ) {
+
+                    searchEmpty.classList.remove(
+                        "hidden"
+                    );
+
+                    searchInfo.textContent =
+                        "No results found for \"" +
+                        query +
+                        "\".";
+
+                    return;
+
+                }
+
+
+                searchInfo.textContent =
+                    "Found " +
+                    books.length +
+                    " results for \"" +
+                    query +
+                    "\".";
+
+
+                books.forEach(
+                    function (book) {
+
+                        searchResults.appendChild(
+                            createBookCard(
+                                book,
+                                "api"
+                            )
+                        );
+
+                    }
+                );
+
+
+            } catch (error) {
+
+                console.error(
+                    error
+                );
+
+
+                searchLoading.classList.add(
+                    "hidden"
+                );
+
+
+                searchInfo.textContent =
+                    "";
+
+
+                searchResults.innerHTML = `
+
+                    <div
+                        class="empty"
+                        style="grid-column:1/-1;"
+                    >
+
+                        <strong>
+                            Couldn't search right now
+                        </strong>
+
+                        Please check your internet
+                        connection and try again.
+
+                    </div>
+
+                `;
+
+            }
+
+        }
+
+
+        /* =========================================================
+           QUICK SEARCH BUTTONS
+        ========================================================== */
+
+        document.addEventListener(
+            "click",
+            function (event) {
+
+                const searchButton =
+                    event.target.closest(
+                        "[data-search]"
+                    );
+
+
+                if (!searchButton) {
+                    return;
+                }
+
+
+                showPage(
+                    "explore"
+                );
+
+
+                searchInput.value =
+                    searchButton.dataset.search;
+
+
+                searchBooks(
+                    searchButton.dataset.search
+                );
+
+            }
+        );
+
+
+        /* =========================================================
+           CATEGORY SEARCH
+        ========================================================== */
+
+        document
+            .querySelectorAll(
+                "[data-category]"
+            )
+            .forEach(
+                function (button) {
+
+                    button.addEventListener(
+                        "click",
+                        function () {
+
+                            const category =
+                                button.dataset.category;
+
+
+                            showPage(
+                                "explore"
+                            );
+
+
+                            searchInput.value =
+                                category;
+
+
+                            searchBooks(
+                                category
+                            );
+
+                        }
+                    );
+
+                }
+            );
+
+
+        /* =========================================================
+           TOAST
+        ========================================================== */
+
+        let toastTimer;
+
+
+        function showToast(
+            message
+        ) {
+
+            toast.textContent =
+                message;
+
+
+            toast.classList.add(
+                "show"
+            );
+
+
+            clearTimeout(
+                toastTimer
+            );
+
+
+            toastTimer =
+                setTimeout(
+                    function () {
+
+                        toast.classList.remove(
+                            "show"
+                        );
+
+                    },
+                    2200
+                );
+
+        }
+
+
+        /* =========================================================
+           ESCAPE HTML
+        ========================================================== */
+
+        function escapeHTML(
+            value
+        ) {
+
+            return String(value)
+                .replace(
+                    /&/g,
+                    "&amp;"
+                )
+                .replace(
+                    /</g,
+                    "&lt;"
+                )
+                .replace(
+                    />/g,
+                    "&gt;"
+                )
+                .replace(
+                    /"/g,
+                    "&quot;"
+                )
+                .replace(
+                    /'/g,
+                    "&#039;"
+                );
+
+        }
+
+
+        /* =========================================================
+           BACK TO TOP
+        ========================================================== */
+
+        window.addEventListener(
+            "scroll",
+            function () {
+
+                if (
+                    window.scrollY >
+                    500
+                ) {
+
+                    topButton.classList.add(
+                        "visible"
+                    );
+
+                } else {
+
+                    topButton.classList.remove(
+                        "visible"
+                    );
+
+                }
+
+            }
+        );
+
+
+        topButton.addEventListener(
+            "click",
+            function () {
+
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+
+            }
+        );
+
+
+        /* =========================================================
+           START PAGE FROM URL HASH
+        ========================================================== */
+
+        const startingPage =
+            location.hash
+                .replace("#", "");
+
+
+        if (
+            startingPage &&
+            document.getElementById(
+                startingPage + "Page"
+            )
+        ) {
+
+            showPageWithoutHistory(
+                startingPage
+            );
+
+        } else {
+
+            showPageWithoutHistory(
+                "home"
+            );
+
+        }
+
+
+    </script>
+
+</body>
+</html>
