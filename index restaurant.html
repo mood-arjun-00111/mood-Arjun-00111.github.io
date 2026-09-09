@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Urban Spice | Restaurant</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#0b0b0b;
+    color:white;
+    line-height:1.6;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+img{
+    width:100%;
+    display:block;
+}
+
+/* ================= NAVBAR ================= */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+
+    background:rgba(10,10,10,.88);
+    backdrop-filter:blur(12px);
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.navbar{
+    max-width:1200px;
+    margin:auto;
+
+    height:75px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 25px;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:bold;
+    letter-spacing:1px;
+}
+
+.logo span{
+    color:#ff9f43;
+}
+
+.menu-btn{
+    background:transparent;
+    border:none;
+    color:white;
+    font-size:30px;
+    cursor:pointer;
+}
+
+.menu{
+    position:absolute;
+    top:75px;
+    right:20px;
+
+    width:230px;
+
+    background:#151515;
+
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:15px;
+
+    padding:15px;
+
+    display:none;
+}
+
+.menu.active{
+    display:block;
+}
+
+.menu a{
+    display:block;
+    padding:12px 15px;
+    border-radius:8px;
+    transition:.3s;
+}
+
+.menu a:hover{
+    background:#ff9f43;
+    color:#000;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,.65),
+        rgba(0,0,0,.85)
+    ),
+    url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=80");
+
+    background-size:cover;
+    background-position:center;
+
+    padding:120px 25px 80px;
+}
+
+.hero-content{
+    max-width:850px;
+    margin:auto;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:clamp(45px,8vw,85px);
+    line-height:1.05;
+    margin-bottom:20px;
+}
+
+.hero h1 span{
+    color:#ff9f43;
+}
+
+.hero p{
+    font-size:19px;
+    color:#ddd;
+
+    max-width:650px;
+    margin:auto auto 30px;
+}
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-block;
+
+    padding:14px 25px;
+
+    border-radius:30px;
+
+    font-weight:bold;
+
+    transition:.3s;
+}
+
+.primary{
+    background:#ff9f43;
+    color:#000;
+}
+
+.secondary{
+    border:1px solid white;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+}
+
+/* ================= GENERAL ================= */
+
+section{
+    padding:90px 25px;
+}
+
+.container{
+    max-width:1150px;
+    margin:auto;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.section-title h2{
+    font-size:42px;
+    margin-bottom:10px;
+}
+
+.section-title p{
+    color:#aaa;
+}
+
+/* ================= MENU ================= */
+
+.menu-section{
+    background:#111;
+}
+
+.category-title{
+    margin:45px 0 20px;
+
+    font-size:28px;
+
+    color:#ff9f43;
+}
+
+.menu-grid{
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+
+    gap:22px;
+}
+
+.menu-card{
+    background:#181818;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    transition:.3s;
+}
+
+.menu-card:hover{
+    transform:translateY(-6px);
+}
+
+.menu-card img{
+    height:190px;
+    object-fit:cover;
+}
+
+.menu-info{
+    padding:18px;
+}
+
+.menu-info h3{
+    margin-bottom:7px;
+}
+
+.menu-info p{
+    color:#999;
+    font-size:14px;
+
+    min-height:45px;
+}
+
+.menu-bottom{
+    margin-top:15px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.menu-price{
+    color:#ff9f43;
+
+    font-size:19px;
+
+    font-weight:bold;
+}
+
+.add-btn{
+    border:none;
+
+    background:#ff9f43;
+    color:#000;
+
+    padding:9px 15px;
+
+    border-radius:20px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.add-btn:hover{
+    transform:scale(1.05);
+}
+
+/* ================= CART ================= */
+
+.cart-box{
+    position:fixed;
+
+    right:20px;
+    bottom:20px;
+
+    z-index:2000;
+}
+
+.cart-button{
+    border:none;
+
+    background:#ff9f43;
+    color:#000;
+
+    padding:15px 20px;
+
+    border-radius:30px;
+
+    font-weight:bold;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.4);
+}
+
+.cart-count{
+    background:#000;
+    color:#fff;
+
+    padding:3px 8px;
+
+    border-radius:20px;
+
+    margin-left:5px;
+}
+
+.cart-panel{
+    position:fixed;
+
+    right:20px;
+    bottom:80px;
+
+    width:min(380px,calc(100% - 40px));
+
+    max-height:75vh;
+
+    overflow-y:auto;
+
+    background:#151515;
+
+    border:1px solid rgba(255,255,255,.1);
+
+    border-radius:20px;
+
+    padding:22px;
+
+    display:none;
+
+    box-shadow:0 10px 40px rgba(0,0,0,.6);
+}
+
+.cart-panel.active{
+    display:block;
+}
+
+.cart-panel h2{
+    margin-bottom:20px;
+}
+
+.cart-item{
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:10px;
+
+    padding:12px 0;
+
+    border-bottom:1px solid #292929;
+}
+
+.cart-item-name{
+    font-weight:bold;
+}
+
+.cart-controls{
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+}
+
+.qty-btn{
+    width:28px;
+    height:28px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#333;
+
+    color:white;
+
+    cursor:pointer;
+}
+
+.remove-btn{
+    color:#ff7070;
+
+    background:none;
+
+    border:none;
+
+    cursor:pointer;
+}
+
+.cart-total{
+    margin-top:20px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    font-size:20px;
+
+    font-weight:bold;
+}
+
+.order-form{
+    margin-top:20px;
+}
+
+.order-form input{
+    width:100%;
+
+    padding:12px;
+
+    margin-bottom:10px;
+
+    background:#222;
+
+    color:white;
+
+    border:1px solid #333;
+
+    border-radius:8px;
+
+    outline:none;
+}
+
+.order-form button{
+    width:100%;
+
+    padding:13px;
+
+    border:none;
+
+    border-radius:25px;
+
+    background:#25D366;
+
+    color:white;
+
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+/* ================= ABOUT ================= */
+
+.about{
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(300px,1fr));
+
+    gap:50px;
+
+    align-items:center;
+}
+
+.about img{
+    border-radius:20px;
+
+    height:400px;
+
+    object-fit:cover;
+}
+
+.about-text h2{
+    font-size:40px;
+
+    margin-bottom:20px;
+}
+
+.about-text p{
+    color:#bbb;
+
+    margin-bottom:20px;
+}
+
+/* ================= GALLERY ================= */
+
+.gallery{
+    background:#111;
+}
+
+.gallery-grid{
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
+
+    gap:15px;
+}
+
+.gallery-grid img{
+    height:250px;
+
+    object-fit:cover;
+
+    border-radius:15px;
+
+    transition:.4s;
+}
+
+.gallery-grid img:hover{
+    transform:scale(1.03);
+}
+
+/* ================= CONTACT ================= */
+
+.contact-grid{
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+
+    gap:20px;
+}
+
+.contact-card{
+    background:#171717;
+
+    padding:30px;
+
+    border-radius:18px;
+
+    text-align:center;
+
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.contact-card .icon{
+    font-size:35px;
+
+    margin-bottom:15px;
+}
+
+.contact-card h3{
+    margin-bottom:10px;
+}
+
+.contact-card p{
+    color:#aaa;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    padding:30px 20px;
+
+    text-align:center;
+
+    background:#050505;
+
+    color:#777;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:600px){
+
+    .navbar{
+        padding:0 18px;
+    }
+
+    .hero{
+        padding-top:120px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    section{
+        padding:70px 18px;
+    }
+
+    .section-title h2{
+        font-size:32px;
+    }
+
+    .about img{
+        height:300px;
+    }
+
+    .cart-panel{
+        right:10px;
+        bottom:80px;
+
+        width:calc(100% - 20px);
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<header>
+
+<div class="navbar">
+
+<div class="logo">
+Urban<span>Spice</span>
+</div>
+
+<button class="menu-btn" onclick="toggleMenu()">
+☰
+</button>
+
+<nav class="menu" id="menu">
+
+<a href="#home" onclick="closeMenu()">Home</a>
+
+<a href="#menu-section" onclick="closeMenu()">Menu</a>
+
+<a href="#about" onclick="closeMenu()">About</a>
+
+<a href="#gallery" onclick="closeMenu()">Gallery</a>
+
+<a href="#contact" onclick="closeMenu()">Contact</a>
+
+</nav>
+
+</div>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+<div class="hero-content">
+
+<h1>
+Taste the
+<span>Extraordinary.</span>
+</h1>
+
+<p>
+Fresh ingredients, unforgettable flavours,
+and an experience made for food lovers.
+</p>
+
+<div class="buttons">
+
+<a href="#menu-section" class="btn primary">
+Explore Menu
+</a>
+
+<a href="#contact" class="btn secondary">
+Contact Us
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= MENU ================= -->
+
+<section class="menu-section" id="menu-section">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>Our Menu</h2>
+
+<p>
+Choose your favourites and order directly from your phone.
+</p>
+
+</div>
+
+
+<!-- STARTERS -->
+
+<h3 class="category-title">
+🥗 Starters
+</h3>
+
+<div class="menu-grid">
+
+
+<div class="menu-card">
+
+<img src="https://images.unsplash.com/photo-1541014741259-de529411b96a?auto=format&fit=crop&w=800&q=80">
+
+<div class="menu-info">
+
+<h3>Bruschetta</h3>
+
+<p>Fresh tomatoes, herbs and toasted bread.</p>
+
+<div class="menu-bottom">
+
+<span class="menu-price">₹149</span>
+
+<button class="add-btn"
+onclick="addToCart('Bruschetta',149)">
+Add +
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="menu-card">
+
+<img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=800&q=80">
+
+<div class="menu-info">
+
+<h3>Garden Salad</h3>
+
+<p>Fresh vegetables with our signature dressing.</p>
+
+<div class="menu-bottom">
+
+<span class="menu-price">₹179</span>
+
+<button class="add-btn"
+onclick="addToCart('Garden Salad',179)">
+Add +
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- MAIN COURSE -->
+
+<h3 class="category-title">
+🍕 Main Course
+</h3>
+
+<div class="menu-grid">
+
+
+<div class="menu-card">
+
+<img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&q=80">
+
+<div class="menu-info">
+
+<h3>Classic Italian Pizza</h3>
+
+<p>Crispy crust, fresh vegetables and premium cheese.</p>
+
+<div class="menu-bottom">
+
+<span class="menu-price">₹299</span>
+
+<button class="add-btn"
+onclick="addToCart('Classic Italian Pizza',299)">
+Add +
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="menu-card">
+
+<img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80">
+
+<div class="menu-info">
+
+<h3>Signature Burger</h3>
+
+<p>Juicy grilled patty with our special sauce.</p>
+
+<div class="menu-bottom">
+
+<span class="menu-price">₹249</span>
+
+<button class="add-btn"
+onclick="addToCart('Signature Burger',249)">
+Add +
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="menu-card">
+
+<img src="https://images.unsplash.com/photo-1559314809-0d155014e29e?auto=format&fit=crop&w=800&q=80">
+
+<div class="menu-info">
+
+<h3>Creamy Pasta</h3>
+
+<p>Rich creamy sauce with herbs and fresh ingredients.</p>
+
+<div class="menu-bottom">
+
+<span class="menu-price">₹279</span>
+
+<button class="add-btn"
+onclick="addToCart('Creamy Pasta',279)">
+Add +
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- DESSERTS -->
+
+<h3 class="category-title">
+🍰 Desserts
+</h3>
+
+<div class="menu-grid">
+
+
+<div class="menu-card">
+
+<img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=800&q=80">
+
+<div class="menu-info">
+
+<h3>Chocolate Dessert</h3>
+
+<p>A perfect sweet ending to your meal.</p>
+
+<div class="menu-bottom">
+
+<span class="menu-price">₹159</span>
+
+<button class="add-btn"
+onclick="addToCart('Chocolate Dessert',159)">
+Add +
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section id="about">
+
+<div class="container">
+
+<div class="about">
+
+<img src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1000&q=80">
+
+<div class="about-text">
+
+<h2>
+More Than Just Food.
+</h2>
+
+<p>
+At Urban Spice, we believe great food
+brings people together.
+</p>
+
+<p>
+Every dish is prepared using fresh
+ingredients and carefully selected flavours.
+</p>
+
+<a href="#contact" class="btn primary">
+Visit Us
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= GALLERY ================= -->
+
+<section class="gallery" id="gallery">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>Our Gallery</h2>
+
+<p>
+A glimpse of our food and atmosphere.
+</p>
+
+</div>
+
+<div class="gallery-grid">
+
+<img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80">
+
+<img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=800&q=80">
+
+<img src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=800&q=80">
+
+<img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=800&q=80">
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>Visit Us</h2>
+
+<p>
+We'd love to serve you.
+</p>
+
+</div>
+
+
+<div class="contact-grid">
+
+
+<div class="contact-card">
+
+<div class="icon">📍</div>
+
+<h3>Location</h3>
+
+<p>
+Jubilee Hills,<br>
+Hyderabad, Telangana
+</p>
+
+<br>
+
+<a
+class="btn primary"
+href="https://www.google.com/maps"
+target="_blank">
+
+Get Directions
+
+</a>
+
+</div>
+
+
+<div class="contact-card">
+
+<div class="icon">📞</div>
+
+<h3>Call Us</h3>
+
+<p>
++91 98765 43210
+</p>
+
+<br>
+
+<a
+class="btn primary"
+href="tel:+919876543210">
+
+Call Now
+
+</a>
+
+</div>
+
+
+<div class="contact-card">
+
+<div class="icon">💬</div>
+
+<h3>WhatsApp</h3>
+
+<p>
+Chat with us directly.
+</p>
+
+<br>
+
+<a
+class="btn primary"
+href="https://wa.me/919876543210"
+target="_blank">
+
+WhatsApp
+
+</a>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CART BUTTON ================= -->
+
+<div class="cart-box">
+
+<button class="cart-button"
+onclick="toggleCart()">
+
+🛒 Cart
+
+<span class="cart-count" id="cart-count">
+0
+</span>
+
+</button>
+
+</div>
+
+
+<!-- ================= CART PANEL ================= -->
+
+<div class="cart-panel" id="cart-panel">
+
+<h2>
+Your Order
+</h2>
+
+<div id="cart-items">
+
+<p style="color:#888;">
+Your cart is empty.
+</p>
+
+</div>
+
+
+<div class="cart-total">
+
+<span>Total</span>
+
+<span>
+₹<span id="cart-total">0</span>
+</span>
+
+</div>
+
+
+<div class="order-form">
+
+<input
+type="text"
+id="customer-name"
+placeholder="Your Name"
+>
+
+<input
+type="text"
+id="table-number"
+placeholder="Table Number"
+>
+
+<button onclick="sendOrder()">
+
+💬 Send Order on WhatsApp
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+© 2026 Urban Spice.
+All Rights Reserved.
+
+</footer>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+let cart = [];
+
+
+/* MENU */
+
+function toggleMenu(){
+
+const menu =
+document.getElementById("menu");
+
+menu.classList.toggle("active");
+
+}
+
+
+function closeMenu(){
+
+const menu =
+document.getElementById("menu");
+
+menu.classList.remove("active");
+
+}
+
+
+/* CART */
+
+function addToCart(name,price){
+
+const existing =
+cart.find(item => item.name === name);
+
+if(existing){
+
+existing.quantity++;
+
+}else{
+
+cart.push({
+name:name,
+price:price,
+quantity:1
+});
+
+}
+
+updateCart();
+
+openCart();
+
+}
+
+
+function updateCart(){
+
+const cartItems =
+document.getElementById("cart-items");
+
+const cartCount =
+document.getElementById("cart-count");
+
+const cartTotal =
+document.getElementById("cart-total");
+
+
+cartCount.innerText =
+cart.reduce(
+(sum,item)=>sum+item.quantity,
+0
+);
+
+
+if(cart.length === 0){
+
+cartItems.innerHTML =
+'<p style="color:#888;">Your cart is empty.</p>';
+
+cartTotal.innerText = "0";
+
+return;
+
+}
+
+
+cartItems.innerHTML = "";
+
+let total = 0;
+
+
+cart.forEach((item,index)=>{
+
+const itemTotal =
+item.price * item.quantity;
+
+total += itemTotal;
+
+
+cartItems.innerHTML += `
+
+<div class="cart-item">
+
+<div>
+
+<div class="cart-item-name">
+${item.name}
+</div>
+
+<div style="color:#aaa;">
+₹${item.price} × ${item.quantity}
+</div>
+
+</div>
+
+<div class="cart-controls">
+
+<button
+class="qty-btn"
+onclick="changeQuantity(${index},-1)">
+−
+</button>
+
+<span>
+${item.quantity}
+</span>
+
+<button
+class="qty-btn"
+onclick="changeQuantity(${index},1)">
++
+</button>
+
+<button
+class="remove-btn"
+onclick="removeItem(${index})">
+✕
+</button>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+
+cartTotal.innerText = total;
+
+}
+
+
+function changeQuantity(index,change){
+
+cart[index].quantity += change;
+
+if(cart[index].quantity <= 0){
+
+cart.splice(index,1);
+
+}
+
+updateCart();
+
+}
+
+
+function removeItem(index){
+
+cart.splice(index,1);
+
+updateCart();
+
+}
+
+
+function toggleCart(){
+
+const panel =
+document.getElementById("cart-panel");
+
+panel.classList.toggle("active");
+
+}
+
+
+function openCart(){
+
+const panel =
+document.getElementById("cart-panel");
+
+panel.classList.add("active");
+
+}
+
+
+/* WHATSAPP ORDER */
+
+function sendOrder(){
+
+if(cart.length === 0){
+
+alert("Please add at least one item to your cart.");
+
+return;
+
+}
+
+
+const name =
+document.getElementById("customer-name").value.trim();
+
+const table =
+document.getElementById("table-number").value.trim();
+
+
+if(!name || !table){
+
+alert("Please enter your name and table number.");
+
+return;
+
+}
+
+
+let message =
+"🍽️ *New Urban Spice Order*%0A%0A";
+
+message +=
+"*Customer:* " + name + "%0A";
+
+message +=
+"*Table:* " + table + "%0A%0A";
+
+message +=
+"*Order:*%0A";
+
+
+let total = 0;
+
+
+cart.forEach(item => {
+
+const itemTotal =
+item.price * item.quantity;
+
+total += itemTotal;
+
+message +=
+"• " +
+item.name +
+" × " +
+item.quantity +
+" = ₹" +
+itemTotal +
+"%0A";
+
+});
+
+
+message +=
+"%0A*Total: ₹" +
+total +
+"*";
+
+
+/*
+IMPORTANT:
+Replace this number with
+the restaurant's WhatsApp number.
+
+Example:
+919876543210
+*/
+
+const restaurantNumber =
+"919876543210";
+
+
+const whatsappURL =
+"https://wa.me/" +
+restaurantNumber +
+"?text=" +
+message;
+
+
+window.open(
+whatsappURL,
+"_blank"
+);
+
+}
+
+</script>
+
+</body>
+</html>
